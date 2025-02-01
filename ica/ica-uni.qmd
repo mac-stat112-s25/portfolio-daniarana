@@ -3,3 +3,139 @@ title: "Univariate Viz"
 ---
 
 Use this file for practice with the **univariate viz** in-class activity.  Refer to the class website for details.
+
+```{r}
+hikes <- read.csv("https://mac-stat.github.io/data/high_peaks.csv")
+```
+
+```{r}
+head(hikes)
+```
+
+#What features would we like a visualization of the categorical difficulty rating variable to capture? 
+For the categorical variable rating we would like to visualize it through boxplots in order to see patterns regarding the ratings.
+
+#What about a visualization of the quantitative elevation variable?
+For a quantitative elevation variable we would preferably visualize it through a histogram.
+
+```{r}
+library(tidyverse)
+ggplot(hikes, aes(x = rating))
+```
+# COMMENT on the change in the code and the corresponding change in the plot
+```{r}
+ggplot(hikes, aes(x = rating)) +
+  geom_bar()
+```
+# COMMENT on the change in the code and the corresponding change in the plot
+```{r}
+ggplot(hikes, aes(x = rating)) +
+  geom_bar() +
+  labs(x = "Rating", y = "Number of hikes")
+```
+# COMMENT on the change in the code and the corresponding change in the plot
+```{r}
+ggplot(hikes, aes(x = rating)) +
+  geom_bar(fill = "blue") +
+  labs(x = "Rating", y = "Number of hikes")
+```
+# COMMENT on the change in the code and the corresponding change in the plot
+```{r}
+ggplot(hikes, aes(x = rating)) +
+  geom_bar(color = "orange", fill = "blue") +
+  labs(x = "Rating", y = "Number of hikes")
+```
+# COMMENT on the change in the code and the corresponding change in the plot
+```{r}
+ggplot(hikes, aes(x = rating)) +
+  geom_bar(color = "orange", fill = "blue")  +
+  labs(x = "Rating", y = "Number of hikes") +
+  theme_minimal()
+```
+Part a
+Reflect on the ggplot() code.
+
+#What’s the purpose of the +? When do we use it?
+The purpose of the + is to add more characteristics to the plot to define it more in depth
+#We added the bars using geom_bar()? Why “geom”?
+Geom because it's the function, also it's a geometric figure
+#What does labs() stand for?
+Labs stands for the axis and the overall plot labels
+#What’s the difference between color and fill?
+Color is the surrounding color, fill is the color for the inside of the bars(or lines).
+
+#Construct a bar chart of the quantitative elevation variable.
+#Explain why this might not be an effective visualization for this and other quantitative variables. (What questions does / doesn’t it help answer?)
+Poor visualization because the bars don't really tell you anything too informing, this is probably the same for other quantitative variables.
+
+```{r}
+ggplot(hikes, aes(x=elevation)) +
+  geom_bar(color = "pink", fill = "blue") +
+  labs(x = "Elevation") +
+  theme_minimal()
+```
+```{r}
+ggplot(hikes, aes(x = elevation))
+```
+# COMMENT on the change in the code and the corresponding change in the plot
+```{r}
+ggplot(hikes, aes(x = elevation)) +
+  geom_histogram()
+```
+# COMMENT on the change in the code and the corresponding change in the plot
+```{r}
+library(tidyverse)
+ggplot(hikes, aes(x = elevation)) +
+  geom_histogram(color = "white", fill = "blue") 
+```
+# COMMENT on the change in the code and the corresponding change in the plot
+```{r}
+ggplot(hikes, aes(x = elevation)) +
+  geom_histogram(color = "white") +
+  labs(x = "Elevation (feet)", y = "Number of hikes")
+```
+# COMMENT on the change in the code and the corresponding change in the plot
+```{r}
+ggplot(hikes, aes(x = elevation)) +
+  geom_histogram(color = "white", binwidth = 1000) +
+  labs(x = "Elevation (feet)", y = "Number of hikes")
+```
+# COMMENT on the change in the code and the corresponding change in the plot
+```{r}
+ggplot(hikes, aes(x = elevation)) +
+  geom_histogram(color = "white", binwidth = 5) +
+  labs(x = "Elevation (feet)", y = "Number of hikes")
+```
+# COMMENT on the change in the code and the corresponding change in the plot
+```{r}
+ggplot(hikes, aes(x = elevation)) +
+  geom_histogram(color = "white", binwidth = 200) +
+  labs(x = "Elevation (feet)", y = "Number of hikes")
+```
+
+```{r}
+ggplot(hikes, aes(x = elevation)) +
+  geom_density()
+```
+
+```{r}
+ggplot(hikes, aes(x = elevation)) +
+  geom_density(color = "blue")
+```
+
+```{r}
+ggplot(hikes, aes(x = elevation)) +
+  geom_density(fill = "orange")
+```
+
+```{r}
+ggplot(hikes, aes(x = elevation)) +
+geom_histogram(color = "white", binwidth = 200) +
+labs(x = "Elevation (feet)", y = "Number of hikes")
+```
+
+```{r}
+ggplot(hikes, aes(x = elevation)) + geom_histogram(color = "white", binwidth = 200) + labs(x = "Elevation (feet)", y = "Number of hikes")
+```
+
+
