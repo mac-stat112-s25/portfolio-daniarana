@@ -1,1 +1,24 @@
+```{r}
 
+courses <- read.csv("https://mac-stat.github.io/data/registrar.csv")
+
+# Check it out
+head(courses)
+
+library(tidyverse)
+```
+
+```{r}
+courses |> 
+  separate(avail_max, "/",  into = c("avail", "max"))
+```
+
+```{r}
+courses |> 
+  mutate(enroll = as.numeric(avail_max))
+```
+
+```{r}
+courses_clean <- courses |> 
+  separate(number, into = c("dept", "number", "section"))
+```
