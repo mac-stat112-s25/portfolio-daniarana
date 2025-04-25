@@ -1,4 +1,4 @@
-project:
+4project:
   type: book
   output-dir: docs
 
@@ -37,6 +37,9 @@ book:
       - ica/ica-bi.qmd
       - ica/ica-multi.qmd
       - ica/ica-spatial.qmd
+      - ica/strings.qmd
+      - ica/wrangling_ICA.qmd
+
 
 format:
   html:
